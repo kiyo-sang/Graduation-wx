@@ -1,0 +1,26 @@
+<view class="content">
+    <!-- 右上角倒计时 -->
+    <view class="num_top">
+        <view class="right_wrap">
+            <text>{{count}} </text>
+            <text bindtap="handleOverEvent"> 跳过</text>
+        </view>
+    </view>
+    <!-- 图片1 -->
+    <image class="img1" src="../../imgs/login/img_light.png" mode="widthFix" >
+        
+    </image>
+    <!-- 图片2 -->
+    
+    <image class="img2" src="../../imgs/login/loading_2.png" mode="widthFix" >
+         
+    </image>
+    <!-- 底部 -->
+    <view class="play_bottom">
+        <text class="txt1" >爱美食</text>
+        <view class="right_txt">
+            <view class="txt2" >{{mounth}}月</view>
+            <view class="txt3" >{{timeStr}}</view>
+        </view>
+    </view>
+</view>
