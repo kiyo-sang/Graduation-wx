@@ -1,0 +1,22 @@
+<!--component/MenuList/MenuList.wxml-->
+
+<view class="list">
+    <view class="detail" wx:for="{{list}}" wx:for-item="item" wx:key="id">
+        <navigator>
+            <image mode="scaleToFill" wx:if="{{!item.mainimage}}" src="../../imgs/menu/notE.jfif"></image>
+            <image mode="scaleToFill" wx:else="{{item.mainimage}}" src="{{item.mainimage}}"></image>
+            <text>{{item.name}}</text>
+        </navigator>
+    </view>
+</view>
+
+
+<!-- <view>
+    <view wx:for="{{list}}" wx:for-item="item" wx:key="id">
+        <navigator url="/component/SearchBar/SearchBar/">
+            <image src="{{item.mainimage}}">
+            </image>
+            <text>{{item.name}}</text>
+        </navigator>    
+    </view>
+</view> -->

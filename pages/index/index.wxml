@@ -1,0 +1,33 @@
+<!-- 搜索框 -->
+<SearchBar></SearchBar>
+<!-- 搜索框 结束 -->
+
+<!-- 轮播图 -->
+<SwiperBar list="{{swiperList}}"></SwiperBar>
+<!-- 轮播图 结束 -->
+
+<!-- 分类图标 -->
+<view class="navigation">
+    <navigator url="/pages/search/index" open-type="navigate">
+        <image src="../../imgs/index/1.png" mode="widthFix" class="pic"/>
+    </navigator>
+    <navigator url="/pages/search/index" open-type="navigate">
+        <image src="../../imgs/index/2.png" mode="widthFix" class="pic"/>
+    </navigator>
+    <navigator url="/pages/search/index" open-type="navigate">
+        <image src="../../imgs/index/3.png" mode="widthFix" class="pic"/>
+    </navigator>
+    <navigator url="/pages/search/index" open-type="navigate">
+        <image src="../../imgs/index/4.png" mode="widthFix" class="pic"/>
+    </navigator>
+</view>
+<!-- 分类图标 结束-->
+
+<!-- 智能推荐 -->
+<view class="commend">
+    <text>为您推荐</text>
+    <icon class="iconfont icon-remen" color="#orange">
+    </icon>
+</view>
+<MenuList list="{{menuList}}"></MenuList>
+<!-- 智能推荐 结束  -->

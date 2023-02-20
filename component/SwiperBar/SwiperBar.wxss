@@ -1,0 +1,19 @@
+/* component/SwiperBar/SwiperBar.wxss */
+swiper {
+  width: 100vw;
+  height: 45vw;
+}
+swiper swiper-item {
+  position: relative;
+}
+swiper swiper-item image {
+  width: 100vw;
+  height: 45vw;
+}
+swiper swiper-item text {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  font-size: 18px;
+  font-weight: bold;
+}

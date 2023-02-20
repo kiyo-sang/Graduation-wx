@@ -1,0 +1,7 @@
+{
+    "usingComponents": {
+        "SearchBar":"/component/SearchBar/SearchBar",
+        "MenuList":"/component/MenuList/MenuList"
+    },
+    "navigationBarTitleText": "吃点什么？"
+}

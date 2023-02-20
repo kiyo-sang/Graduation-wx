@@ -1,0 +1,18 @@
+/* component/MenuList/MenuList.wxss */
+.list {
+  display: flex;
+  flex-wrap: wrap;
+}
+.list .detail {
+  width: 47.5%;
+  margin: 5px;
+  display: inline-block;
+  vertical-align: top;
+}
+.list .detail navigator image {
+  width: 100%;
+  border-radius: 25rpx;
+}
+.list .detail navigator text {
+  font-size: large;
+}

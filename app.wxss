@@ -1,0 +1,16 @@
+/* 全局引入icon样式 */
+@import './styles/iconfont.wxss'
+@import '/miniprogram_npm/@vant/weapp/common/index.wxss'
+
+/* 全局样式 */
+page,view,text,swiper,swiper-item,image,navigator{
+    padding:0;
+    margin: 0;
+    box-sizing:border-box;
+}
+
+/* 全局变量 主题颜色等 */
+page{
+    --themeColor:#1E90FF;
+    font-size: 30rpx;
+}

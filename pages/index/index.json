@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+      "SearchBar":"/component/SearchBar/SearchBar",
+      "SwiperBar":"/component/SwiperBar/SwiperBar",
+      "MenuList":"/component/MenuList/MenuList"
+  },
+  "navigationBarTitleText": "居家饮食首页"
+}

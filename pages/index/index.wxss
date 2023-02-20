@@ -1,0 +1,33 @@
+.navigation {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: white;
+}
+.navigation navigator {
+  width: 45%;
+  height: 18vh;
+  margin-left: 25rpx;
+  margin-bottom: 1rpx;
+  margin-top: 15rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  color: white;
+}
+.navigation navigator .pic {
+  border-radius: 10px;
+  position: relative;
+}
+.commend {
+  height: 60rpx;
+  margin-top: 20rpx;
+  padding-bottom: 15rpx;
+  background-color: whitesmoke;
+}
+.commend text {
+  font-size: 32rpx;
+  font-weight: 600;
+  padding-left: 15rpx;
+  color: orange;
+}

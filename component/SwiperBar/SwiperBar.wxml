@@ -1,0 +1,11 @@
+<!--component/SwiperBar/SwiperBar.wxml-->
+<swiper autoplay indicator-dots>
+    <swiper-item wx:for="{{list}}" wx:for-item="swiper" wx:key="id">
+        <navigator url="/component/SearchBar/SearchBar/">
+            <image src="{{swiper.mainimage}}">
+            </image>
+            <text>{{swiper.name}}</text>
+        </navigator>    
+    </swiper-item>
+
+</swiper>
