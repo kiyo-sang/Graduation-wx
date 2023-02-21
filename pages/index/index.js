@@ -1,5 +1,5 @@
 // const { searchByType } = require('../../utils/request').Api;
-const { searchByType } = require('../../utils/api')
+const { searchByType, EveryDayList } = require('../../utils/api')
 
 Page({
 
@@ -16,26 +16,18 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.request({
-        url: 'http://localhost:8080/EveryDay/list',
-        method:"GET",
-        success:(result)=>{
-          console.log(result)
-          this.setData(
-              {swiperList:result.data.data}
-          )
-        }
-      })
- 
-      searchByType(this.data.typeId).then((res) =>{
-          console.log(res.data)
-          this.setData(
-            {menuList:res.data.list}
+    EveryDayList().then((res) => {
+        this.setData(
+            {swiperList:res.data}
         )
-         
-      })
-  
+    })
 
+    searchByType(this.data.typeId).then((res) =>{
+        console.log(res.data)
+        this.setData(
+        {menuList:res.data.list}
+    )
+    })
   },
 
   /**

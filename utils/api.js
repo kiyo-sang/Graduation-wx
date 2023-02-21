@@ -3,7 +3,10 @@ import{ request } from './request'
 //基于业务封装的接口
 module.exports={
 
-	/* 轮播图 */
+    /* 轮播图 */
+    EveryDayList: ()=>{
+        return request('/EveryDay/list', 'GET', {});
+    },
 	// getBanner:()=>{
 	// 	return request('','GET',{});
     // },

@@ -1,21 +1,27 @@
 <!--pages/login/index.wxml-->
 
-<view id="total">
-<image src="../../imgs/login/head.jpg"></image>
-<form catchsubmit="create_login">
-    <view id="t1">
-    <text>账号</text><input type="text" name="username" id="use" placeholder="输入您的用户名(账号)" value="{{username}}"></input>
+<view id="total" class="login_wrap">
+    <image class="avatar" src="../../imgs/login/head.jpg" mode="widthFix"></image>
+    <view class="form_wrap">
+        <view class="item_input flex" >
+            <van-icon class="icon" name="manager-o" />
+            <input class="input_box"
+            value="{{username}}"
+            data-key="username" 
+            bindinput="setInputVal"
+            placeholder-class="input_placeholder" type="text" placeholder="请输入用户名" />
+        </view>
+        <view class="item_input flex" >
+            <van-icon class="icon" name="bulb-o" />
+            <input class="input_box"   
+            value="{{password}}"     
+            bindinput="setInputVal"
+            data-key="password"
+            password="{{true}}" placeholder-class="input_placeholder" type="text" placeholder="请输入密码" />
+        </view>
     </view>
-    <view id="t2">
-    <text>密码</text><input type="password" name="password" id="pass1" placeholder="输入您密码" value="{{password}}"></input>
-    </view>
-
-    <button bindtap="goto_index" id="btn1" form-type="submit"><text>登陆</text></button>
-</form>
-
-<button bindtap="goto_zhuce" id="btn2"><text>注册</text></button>
-<button bindtap="goto_update" id="btn3"><text>忘记密码</text></button>
-
+    <button class="btn"  bindtap="handleLR">{{loginStatus?"登录":"注册"}}</button>
+    <view class="regist" bindtap="handleSwitchStatus">{{loginStatus?"立即注册":"去登陆"}}</view>
 </view>
 
 

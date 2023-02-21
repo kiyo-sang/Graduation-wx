@@ -1,4 +1,5 @@
-const baseUrl = "http://localhost:8080";
+const App = getApp()
+const baseUrl = App.globalData.req_url;
 
 module.exports = {
     /**
@@ -8,21 +9,21 @@ module.exports = {
      *  data:要传递的参数
      *isSubDomain:表示是否添加二级子域名 true代表添加, false代表不添加
      */
-    request: (url, method, data) => {
-        console.log('这是我封装的ajax请求', baseUrl);
+    request: (url, method, data, header={},) => {
+        // console.log('这是我封装的ajax请求', baseUrl);
       	//这里使用ES6的写法拼接的字符串
         let _url = `${baseUrl}${url}`;
-        console.log(_url);
         return new Promise((resolve, reject) => {
 			wx.showLoading({
 				title: '正在加载',
 			});
             wx.request({
                 url: _url,
-                data: data,
-                method: method,
+                data: {...data},
+                method,
                 header: {
-                //     'content-type': 'application/x-www-form-urlencoded',
+                    ...header,
+                //'content-type': 'application/x-www-form-urlencoded',
                 'content-type': 'application/json;charset=UTF-8'
                 },
                 success: (res) => {
@@ -30,15 +31,24 @@ module.exports = {
 					let { status } = res.data;
 					if(status===0) {
 						resolve(res.data);
-						wx.hideLoading();
 					}else {
 						wx.showToast({
 							title: '数据请求错误',
-						})
-					}
+                        })
+                        reject(res)
+                    }
+                    setTimeout(_=>{
+                        wx.hideLoading();
+                    },500)
                 },
-				fail() {
-					reject('接口有误，请检查')
+				fail(err) {
+                    wx.hideLoading();
+                    console.log("err!!!!",err)
+                    wx.showToast({
+                        icon:"none",
+                        title: '请求失败',
+                    });
+					reject(err)
 				}
             });
 			
