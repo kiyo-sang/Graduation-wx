@@ -1,2 +1,109 @@
-<!--pages/generator/index.wxml-->
-<text>pages/generator/index.wxml</text>
+<view>
+<!-- 搜索框 -->
+    <SearchBar></SearchBar>
+    <view class="gen_title">冰箱里面有什么？</view>
+    <view class="gen_content">
+        <view class="content_title">蔬菜</view>
+        <view class="content_all flex">
+            <view class="content_item">
+                土豆
+            </view>
+            <view class="content_item">
+                元宵
+            </view>
+            <view class="content_item">
+                小少爷
+            </view>
+            <view class="content_item">
+                土豆
+            </view>
+            <view class="content_item">
+                元宵
+            </view>
+            <view class="content_item">
+                小少爷
+            </view>
+            <view class="content_item">
+                土豆
+            </view>
+            <view class="content_item">
+                元宵
+            </view>
+            <view class="content_item">
+                小少爷
+            </view>
+        </view>
+        <view style="color: rgb(173, 166, 155);" bindtap="handleUnfold">{{unfold ? "收起更多" : "展开更多"}}</view>
+    </view>
+    <view class="gen_content">
+        <view class="content_title">肉类</view>
+        <view class="content_all flex">
+            <view class="content_item">
+                土豆
+            </view>
+            <view class="content_item">
+                元宵
+            </view>
+            <view class="content_item">
+                小少爷
+            </view>
+            <view class="content_item">
+                土豆
+            </view>
+            <view class="content_item">
+                元宵
+            </view>
+            <view class="content_item">
+                小少爷
+            </view>
+            <view class="content_item">
+                土豆
+            </view>
+            <view class="content_item">
+                元宵
+            </view>
+            <view class="content_item">
+                小少爷
+            </view>
+        </view>
+        <view style="color: rgb(158, 158, 158);" bindtap="handleUnfold">{{unfold ? "收起更多" : "展开更多"}}</view>
+    </view>
+    <view class="gen_content">
+        <view class="content_title">肉类</view>
+        <view class="content_all flex">
+            <view class="content_item">
+                土豆
+            </view>
+            <view class="content_item">
+                元宵
+            </view>
+            <view class="content_item">
+                小少爷
+            </view>
+            <view class="content_item">
+                土豆
+            </view>
+            <view class="content_item">
+                元宵
+            </view>
+            <view class="content_item">
+                小少爷
+            </view>
+            <view class="content_item">
+                土豆
+            </view>
+            <view class="content_item">
+                元宵
+            </view>
+            <view class="content_item">
+                小少爷
+            </view>
+        </view>
+        <view style="color: rgb(158, 158, 158);" bindtap="handleUnfold">{{unfold ? "收起更多" : "展开更多"}}</view>
+    </view>
+    <button type="primary" wx:if="{{ unfold }}" class="submit_button">
+        查看搭配
+        <view class="button_number">1</view>
+    </button>
+    <view style="height: 100rpx;"></view>
+</view>

@@ -1,1 +1,50 @@
 /* pages/generator/index.wxss */
+.gen_title {
+    font-size: 24px;
+    text-align: center;
+    margin: 30px 0;
+}
+
+.gen_content {
+    text-align: center;
+    width: 90%;
+    margin: 20rpx auto;
+    background-color: rgb(246,246,246);
+    border-radius: 29rpx;
+    padding-bottom: 45rpx;
+}
+
+.content_title {
+    font-size: 20px;
+    padding: 20rpx 0 50rpx 0;
+}
+.content_all {
+    margin: 20rpx 30rpx 0;
+    flex-wrap: wrap;
+}
+.content_item {
+    background-color: white;
+    padding: 0 30rpx;
+    margin: 0 32rpx 17rpx 0;
+    border-radius: 50rpx;
+}
+.submit_button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 20rpx;
+    width: 90%;
+    left: 5%;
+}
+.button_number {
+    display: table-cell;
+    width: 50rpx;
+    height: 50rpx;
+    text-align: center;
+    vertical-align: middle;
+    background-color: red;
+    border-radius: 50%;
+    line-height: 50rpx;
+    margin-left: 10rpx;
+}

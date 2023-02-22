@@ -13,9 +13,13 @@ page,view,text,swiper,swiper-item,image,navigator{
 page{
     --themeColor:#1E90FF;
     font-size: 30rpx;
+    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica,
+      Segoe UI, Arial, Roboto, 'PingFang SC', 'miui', 'Hiragino Sans GB', 'Microsoft Yahei',
+      sans-serif;
 }
 
 .flex{
     display: flex;
     align-items: center;
 }
+  

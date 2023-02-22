@@ -5,7 +5,13 @@ Page({
      * 页面的初始数据
      */
     data: {
+        unfold: false
+    },
 
+    handleUnfold () {
+        this.setData({
+            unfold: !this.data.unfold
+        })
     },
 
     /**

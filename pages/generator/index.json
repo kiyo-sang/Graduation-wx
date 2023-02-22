@@ -1,3 +1,7 @@
 {
-    "usingComponents": {}
+    "usingComponents": {
+        "SearchBar":"/component/SearchBar/SearchBar",
+        "van-transition": "/miniprogram_npm/@vant/weapp/transition/index"
+    },
+    "navigationBarTitleText": "生成器"
 }

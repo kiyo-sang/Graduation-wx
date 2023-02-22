@@ -21,6 +21,13 @@
                     "query": "",
                     "launchMode": "default",
                     "scene": null
+                },
+                {
+                    "name": "生成器",
+                    "pathName": "pages/generator/index",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
                 }
             ]
         }
