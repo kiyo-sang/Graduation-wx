@@ -1,2 +1,31 @@
-<!--pages/add/index.wxml-->
-<text>pages/add/index.wxml</text>
+<view>
+    <view class="header">
+        <van-cell-group>
+            <van-field
+                value="{{ recipe.name }}"
+                required
+                clearable
+                label="菜谱名称"
+                placeholder="请输入菜谱名"
+                data-key="name"
+                bind:change="onChange"
+            />
+            <van-cell title="菜谱类型" value="{{recipe.typeid}}" bindtap="onPickerCancel"/>
+            <van-field
+                value="{{ recipe.content }}"
+                required
+                label="菜谱内容"
+                placeholder="请输入菜谱内容"
+                type="textarea"
+                data-key="content"
+                autosize
+                bind:change="onChange"
+            />
+        </van-cell-group>
+        
+    </view>
+    <van-picker wx:if="{{isOpenPicker}}" columns="{{ columns }}" show-toolbar title="选择菜谱类型"  bind:cancel="onPickerCancel" bind:confirm="onPickerConfirm" class="wrap_picker"/>
+
+    <van-button type="primary" size="small" class="submit_button flex" bindtap="submit">发布</van-button>
+    
+</view>

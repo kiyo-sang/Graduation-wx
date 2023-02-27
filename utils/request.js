@@ -13,6 +13,7 @@ module.exports = {
         // console.log('这是我封装的ajax请求', baseUrl);
       	//这里使用ES6的写法拼接的字符串
         let _url = `${baseUrl}${url}`;
+        let token = wx.getStorageSync("token") || '';
         return new Promise((resolve, reject) => {
 			wx.showLoading({
 				title: '正在加载',
@@ -24,16 +25,27 @@ module.exports = {
                 header: {
                     ...header,
                 //'content-type': 'application/x-www-form-urlencoded',
+                'cookie':token,//读取cookie
                 'content-type': 'application/json;charset=UTF-8'
                 },
                 success: (res) => {
                     console.log('从接口获取到的数据', res);
+                    if(res.cookies.length > 0) {
+                        let cookie = parse(/([^=;\s]+)=([^;]+);?/g, res.cookies[0].replace(/; httponly/g, "$&=true"));
+                        wx.setStorageSync("token", 'JSESSIONID=' + cookie.JSESSIONID)
+                    }
 					let { status } = res.data;
 					if(status===0) {
 						resolve(res.data);
-					}else {
+					} else {
+                        if (status === 10) {
+                            wx.redirectTo({
+                                url: '/pages/login/index'
+                              })
+                        }
 						wx.showToast({
-							title: '数据请求错误',
+                            title: res.data.msg,
+                            icon: 'none'
                         })
                         reject(res)
                     }
@@ -54,22 +66,15 @@ module.exports = {
 			
         });
     },
-    //GET请求，不需传参，直接URL调用，params:{city:'北京'}
-//     getDataForParam:(url, params,doSuccess, doFail) {
-//     wx.request({
-//       url: baseUrl + url,
-//       data: params,
-//       header: {
-//         "content-type": "application/json;charset=UTF-8"
-//       },
-//       method: 'GET',
-//       success: function (res) {
-//         doSuccess(res.data);
-//       },
-//       fail: function () {
-//         doFail();
-//       },
-//     })
-//   },
+}
+function parse(reg, text) {
+    if (!reg || !text) return {}
+    const hash = {};
+    let res = reg.exec(text);
+    while (res !== null) {
+        hash[res[1]] = res[2];
+        res = reg.exec(text);
+    }
+    return hash;
 }
 

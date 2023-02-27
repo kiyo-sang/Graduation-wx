@@ -25,8 +25,8 @@ module.exports={
     // },
 
     // login
-    login: (username,password)=>{
-        return request('/user/login/'+keyword, 'POST', {username:username, password:password});
+    login: (params)=>{
+        return request('/user/login', 'POST', params);
     },
     
     // searchByType
@@ -36,6 +36,10 @@ module.exports={
 
     searchByKeyword: (keyword)=>{
         return request('/menus/searchByKeyword/'+keyword, 'GET', {});
+    },
+
+    selectAll: ()=>{
+        return request('/selectAll', 'GET', {});
     }
 }
 

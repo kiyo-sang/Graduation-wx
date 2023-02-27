@@ -1,1 +1,12 @@
 /* pages/add/index.wxss */
+.header {
+    margin-top: 40rpx;
+}
+.submit_button {
+    margin-top: 40rpx;
+}
+.wrap_picker {
+    position: fixed;
+    width: 100%;
+    bottom: 0rpx;
+}

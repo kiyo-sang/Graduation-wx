@@ -51,8 +51,8 @@ Page({
           return
         } 
         const params={
-          userName:this.data.username,
-          userPassword:this.data.password
+          username:this.data.username,
+          password:this.data.password
         }
         if(this.data.loginStatus){
           this.loginFun(params)
@@ -67,62 +67,42 @@ Page({
     onLoad(options) {
 
     },
-
-     // 登录
-     create_login:(e)=>{
-        var that = this
-        wx.request({
-            url: app.globalData.req_url+'/user/login',
-            // url: 'http://localhost:8080/user/login',
-            method:"POST",
-            data:e.detail.value,
-            success:(res)=>{
-                if(res.data.status===0){
-                    that.setData(
-                        {userInfo:res.data.data }
-                    )
-                    console.log(res.data)
-                    wx.showToast({
-                        title: "登录成功",
-                        duration: 2000
-                        })
-                    wx.switchTab({
-                        url: '../../pages/index/index',
-                    })
-                    setTimeout(function () {
-                    wx.navigateBack({
-                        delta: 2
-                    })
-                    }, 1000)
-                }else{
-                    wx.showToast({
-                        title: res.data.msg,
-                        icon: 'none',
-                        duration: 3000
-                        })
-                        setTimeout(function () {
-                        wx.navigateBack({
-                            delta: 2
-                        })
-                        }, 1000)
-                    }
-            }
-          })
-
+    //登录
+    loginFun(params){
+        login(params).then((res) =>{
+            wx.setStorageSync("loginInfo", res.data || {});
+            wx.showToast({
+                title: "登录成功",
+                duration: 2000
+            })
+            wx.switchTab({
+                url: '/pages/index/index',
+            })
+            setTimeout(function () {
+            wx.navigateBack({
+                delta: 2
+            })
+            }, 1000)
+        })
     },
+
+    //注册
+    registFun(params){
+        // registAPI(params).then(res=>{ 
+          wx.showToast({
+            title:"注册成功",
+            icon:"none"
+          })
+          this.setData({
+            loginStatus:true
+          })
+        // })
+      },
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady() {
         
-
-
-        // login(this.data.username,this.data.password).then((res) =>{
-        //     console.log(res.data)
-        //     this.setData(
-        //       {userInfo:res.data}
-        //   ) 
-        // })
     },
 
     /**

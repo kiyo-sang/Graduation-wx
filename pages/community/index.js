@@ -1,4 +1,10 @@
 // pages/community/index.js
+const { selectAll } = require('../../utils/api')
+
+const citys = {
+    浙江: ['杭州', '宁波', '温州', '嘉兴', '湖州'],
+    福建: ['福州', '厦门', '莆田', '三明', '泉州'],
+  };
 Page({
 
     /**
@@ -9,17 +15,37 @@ Page({
     },
 
     /**
-     * 生命周期函数--监听页面加载
-     */
-    onLoad(options) {
-
-    },
-
-    /**
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady() {
+        let typeList = {}
 
+        selectAll().then(res => {
+            typeList = this.expansion(res.data)
+            console.log(typeList);
+        })
+    },
+
+    expansion(data, typeList = {}, num = '') {
+        data.forEach(item => {
+            // if(num === '') {
+            //     typeList[item.类型名称] = []
+            // } else {
+            //     typeList[num].push(item.类型名称)
+            // }
+            if(item.subMenuType && item.subMenuType.length !== 0) {
+                if(typeList[num]) {
+                    typeList[num][item.类型名称] = []
+                } else {
+                    typeList[item.类型名称] = []
+                }
+                
+                this.expansion(item.subMenuType, typeList, item.类型名称)
+            } else {
+                typeList[num].push(item.类型名称)
+            }
+        });
+        return typeList
     },
 
     /**
